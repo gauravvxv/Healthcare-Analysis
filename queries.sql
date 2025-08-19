@@ -120,5 +120,14 @@ group by hospital
 order by total_patients desc
 limit 5;
 
--- 15. 
+-- 15. Top Insurance Providers by Total Billing Amount and total patients in each insurance
+select
+insurance_provider,
+count(*) as total_patients,
+round(sum(billing_amount)::numeric,2) as total_amount
+from data
+group by insurance_provider
+order by total_amount desc;
+
+-- 16. Total Patients as per admission_type
 
